@@ -2,7 +2,7 @@
 #
 # Author: Whiterabbit.Monster
 # Date: 2023-01-28 13:13:03
-# LastEditTime: 2023-08-25 10:51:44
+# LastEditTime: 2023-08-25 11:04:36
 # Description: ssh服务初始化设置
 # 
 # Copyright (c) 2023 by Whiterabbit.Monster, All Rights Reserved. 
@@ -38,15 +38,14 @@ print_intro() {
     greenline
     color_print yellow "按任意键继续..."
     read -s -n1 -p ""
-    clear
+    #clear
 }
 print_intro
 
 # 函数：初始化
 init() {
     cd /root
-    ssh_config="/root/test"
-    #ssh_config="/etc/ssh/sshd_config"
+    ssh_config="/etc/ssh/sshd_config"
 }
 
 # 函数：如果非root登录则退出
