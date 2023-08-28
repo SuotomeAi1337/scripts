@@ -1,7 +1,8 @@
+#!/usr/bin/env bash
 #
 # Author: Whiterabbit.Monster
 # Date: 2023-08-25 23:47:42
-# LastEditTime: 2023-08-28 13:43:46
+# LastEditTime: 2023-08-28 13:44:47
 # Description: define common var and function
 # 
 # Copyright (c) 2023 by Whiterabbit.Monster, All Rights Reserved. 
