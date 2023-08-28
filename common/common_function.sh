@@ -2,7 +2,7 @@
 #
 # Author: Whiterabbit.Monster
 # Date: 2023-08-25 23:47:42
-# LastEditTime: 2023-08-28 13:44:47
+# LastEditTime: 2023-08-28 14:00:45
 # Description: define common var and function
 # 
 # Copyright (c) 2023 by Whiterabbit.Monster, All Rights Reserved. 
@@ -21,7 +21,7 @@ color_print() {
         blue)   color_code="31;36";;
         *)      color_code="0";;
     esac
-    printf '\033[0;%sm%b\033[0m' "$color_code" "$2"
+    printf '\033[0;%sm%b\033[0m\n' "$color_code" "$2"
 }
 
 # 函数：检测root
