@@ -2,7 +2,7 @@
 #
 # Author: Whiterabbit.Monster
 # Date: 2023-08-25 23:47:42
-# LastEditTime: 2023-08-28 15:29:53
+# LastEditTime: 2023-08-28 16:09:44
 # Description: define common var and function
 # 
 # Copyright (c) 2023 by Whiterabbit.Monster, All Rights Reserved. 
@@ -25,8 +25,9 @@ color_print() {
 }
 
 # 函数：打印绿色分隔符
-   greenline=$(_green "--------------------------------------------------------------------")
-
+greenline() {
+    color_print green "--------------------------------------------------------------------"
+}
 
 # 函数：打印分隔符
 print_separator() {
