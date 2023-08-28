@@ -1,8 +1,7 @@
-#!/usr/bin/env bash
 #
 # Author: Whiterabbit.Monster
 # Date: 2023-08-25 23:47:42
-# LastEditTime: 2023-08-28 13:22:25
+# LastEditTime: 2023-08-28 13:43:46
 # Description: define common var and function
 # 
 # Copyright (c) 2023 by Whiterabbit.Monster, All Rights Reserved. 
@@ -89,12 +88,13 @@ start_timer() {
 stop_timer() {
     end_time=$(date +%s)
     execution_time=$((end_time - start_time))
-    if [ execution_time -gt 60 ]; then
+    if [ $execution_time -gt 60 ]; then
         minutes=$((total_seconds / 60))
         seconds=$((total_seconds % 60))
         echo "Script execution time: $minutes minutes $seconds seconds"
     else
         echo "Script execution time: $seconds seconds"
+    fi
 }
 
 
