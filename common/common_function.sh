@@ -2,7 +2,7 @@
 #
 # Author: Whiterabbit.Monster
 # Date: 2023-08-25 23:47:42
-# LastEditTime: 2023-08-28 14:00:45
+# LastEditTime: 2023-08-28 15:29:53
 # Description: define common var and function
 # 
 # Copyright (c) 2023 by Whiterabbit.Monster, All Rights Reserved. 
@@ -22,6 +22,33 @@ color_print() {
         *)      color_code="0";;
     esac
     printf '\033[0;%sm%b\033[0m\n' "$color_code" "$2"
+}
+
+# 函数：打印绿色分隔符
+   greenline=$(_green "--------------------------------------------------------------------")
+
+
+# 函数：打印分隔符
+print_separator() {
+    if [ $# -ne 3 ]; then
+        echo "Usage: print_separator <color> <separator> <count>"
+        return 1
+    fi
+    
+    local color="$1"
+    local separator="$2"
+    local count="$3"
+    
+    if [ "$count" -le 0 ]; then
+        return 0
+    fi
+    
+    local separator_string=""
+    for ((i = 0; i < count; i++)); do
+        separator_string="${separator_string}${separator}"
+    done
+    
+    color_print "$color" "$separator_string"
 }
 
 # 函数：检测root
