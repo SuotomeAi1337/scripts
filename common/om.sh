@@ -2,7 +2,7 @@
 #
 # Author: Whiterabbit.Monster
 # Date: 2023-08-29 14:28:23
-# LastEditTime: 2023-08-29 14:40:13
+# LastEditTime: 2023-08-29 14:45:53
 # Description: 运维相关，打包常用命令
 # 
 # Copyright (c) 2023 by Whiterabbit.Monster, All Rights Reserved. 
@@ -34,7 +34,14 @@ sc() {
             systemctl disable "$service_name"
             ;;
         *)
-            echo "Invalid action. Usage: s [operation: s|p|r|u|e|d] <service_name>"
+            echo "Invalid action. "
+            echo "Usage: sc [operation] <service_name>"
+            echo "  st: start"
+            echo "  sp: stop"
+            echo "  ss: status"
+            echo "  r:  restart"
+            echo "  e:  enable"
+            echo "d  :  disable"
             ;;
     esac
 }
