@@ -2,28 +2,29 @@
 #
 # Author: Whiterabbit.Monster
 # Date: 2023-08-29 14:28:23
-# LastEditTime: 2023-08-29 14:35:32
+# LastEditTime: 2023-08-29 14:40:13
 # Description: 运维相关，打包常用命令
 # 
 # Copyright (c) 2023 by Whiterabbit.Monster, All Rights Reserved. 
 #
 
 # 函数：systemctl相关
-st() {
+# 函数名为System Control的缩写，易混淆的操作为头尾字母，其他为单字母
+sc() {
     operation="$1"
     service_name="$2"
     
     case "$operation" in
-        s)
+        st)
             systemctl start "$service_name"
             ;;
-        p)
+        sp)
             systemctl stop "$service_name"
             ;;
         r)
             systemctl restart "$service_name"
             ;;
-        u)
+        ss)
             systemctl status "$service_name"
             ;;
         e)
