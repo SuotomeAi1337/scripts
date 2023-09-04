@@ -2,7 +2,7 @@
 #
 # Author: Whiterabbit.Monster
 # Date: 2023-01-28 13:13:03
-# LastEditTime: 2023-08-25 11:04:36
+# LastEditTime: 2023-09-04 11:57:16
 # Description: ssh服务初始化设置
 # 
 # Copyright (c) 2023 by Whiterabbit.Monster, All Rights Reserved. 
@@ -58,9 +58,14 @@ check_root() {
 
 # 函数：备份sshd配置文件
 bak_sshd() {
-    cp /etc/ssh/sshd_config /etc/ssh/sshd_config_bak
-    greenline
-    color_print blue "sshd_config已备份为：/etc/ssh/sshd_config_bak"
+    if [[ -f /etc/ssh/sshd_config_bak ]]; then
+        greenline
+        color_print blue "已存在备份文件：/etc/ssh/sshd_config_bak"
+    else
+        cp /etc/ssh/sshd_config /etc/ssh/sshd_config_bak
+        greenline
+        color_print blue "sshd_config已备份为：/etc/ssh/sshd_config_bak"
+    fi
 }
 
 # 函数：检测并添加公钥

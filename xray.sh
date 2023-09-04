@@ -2,7 +2,7 @@
 #
 # Author: Whiterabbit.Monster
 # Date: 2023-08-25 21:28:41
-# LastEditTime: 2023-08-28 16:14:39
+# LastEditTime: 2023-09-04 21:58:39
 # Description: 安装xray-core
 # 
 # Copyright (c) 2023 by Whiterabbit.Monster, All Rights Reserved. 
@@ -101,27 +101,6 @@ check_os_arch() {
   else
     echo "error: This operating system is not supported."
     exit 1
-  fi
-}
-
-# 函数：
-# 获取最新稳定版的版本号release_lastest_version
-# 最新发行版的版本号release_newest_verion
-# 前10个发行版本号（稳定版和最新版标黄）release_color_tag
-get_release() {
-  # Get Xray latest release version number
-  local tmp_latest tmp_list
-  tmp_latest=$(curl -sS -H "$request_head" "$release_latest_link")
-  tmp_list=$(curl -sS -H "$request_head" "$release_list_link")
-
-  if [ -n "$tmp_latest" ]; then
-	release_newest_version=$(echo $tmp_list | sed 'y/,/\n/' | grep -m1 'tag_name' | awk -F '"' '{print $4}')
-	release_lastest_version=$(echo $tmp_latest | sed 'y/,/\n/' | grep 'tag_name' | awk -F '"' '{print $4}')
-	release_list=$(echo $tmp_list | sed 'y/,/\n/' | grep 'tag_name' | awk -F '"' '{print $4}' | head -n 10)
-	release_color_tag=$(echo "$release_list" | sed "s/${release_lastest_version}/\\\\e[33m${release_lastest_version} (latest)\\\\e[0m/g" | sed "s/${release_newest_version}/\\\\e[33m${release_newest_version} (new)\\\\e[0m/g")
-  else
-	echo "Please check network..."
-	exit 1
   fi
 }
 
